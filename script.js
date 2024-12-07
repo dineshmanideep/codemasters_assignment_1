@@ -27,10 +27,11 @@ document.getElementById("date").innerHTML=date;
 
 }
 
-function set_page(){
+async function set_page(){
+   await fetch_advice();
     get_time_stamp();
-    fetch_advice();
     document.getElementById("slip").classList.add("show");
+    document.getElementById("tweet_button").classList.add("show");
 }
 
 function reset_page(){
@@ -38,9 +39,15 @@ function reset_page(){
     document.getElementById("date").innerHTML="";
     document.getElementById("advice_box").innerHTML="";
     document.getElementById("slip").classList.remove("show");
+    document.getElementById("tweet_button").classList.remove("show");
 }
 
+function tweet_advice(){
+const advice =document.getElementById("advice_box").innerHTML;
+const tweeturl= `https://twitter.com/intent/tweet?text=${encodeURIComponent(advice)}&hashtags=Advice`;
+window.open(tweeturl,'_blank');
 
+}
 
 
 

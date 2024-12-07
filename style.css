@@ -87,3 +87,13 @@ button:active {
 #slip.show {
     display: block; 
 }
+ 
+#tweet_button{
+    
+    display: none;
+    
+}
+
+#tweet_button.show {
+    display: inline-block; 
+}
